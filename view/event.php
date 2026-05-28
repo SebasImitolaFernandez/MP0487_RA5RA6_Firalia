@@ -68,7 +68,7 @@ $eventos_query = $conexion->query("SELECT * FROM EVENTOS");
             </li>
             <?php if (isset($_SESSION["user_id"])): ?>
                 <li>
-                    <?php if ($_SESSION["ROL"]):?>
+                    <?php if ($_SESSION["rol"] == 1):?>
                         <a href="profileadmin.php">
                             <img src="../controller/<?= $user_image ?>" alt="Pfp" class="pfpNav">
                         <?php else: ?>
