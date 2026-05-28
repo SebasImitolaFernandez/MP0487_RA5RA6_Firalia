@@ -4,7 +4,7 @@ if (isset($_SESSION["user_image"])) {
     $user_image = $_SESSION["user_image"];
 }
 
-$conexion = new mysqli("localhost", "root", "", "mp0487_firalia_showndead");
+$conexion = new mysqli("localhost", "root", "", "mp0487_firalia");
 $conexion->set_charset("utf8");
 
 // Obtener todos los eventos
@@ -68,7 +68,7 @@ $eventos_query = $conexion->query("SELECT * FROM EVENTOS");
             </li>
             <?php if (isset($_SESSION["user_id"])): ?>
                 <li>
-                    <?php if ($_SESSION["rol"] == 1): ?>
+                    <?php if ($_SESSION["rol"]):?>
                         <a href="profileadmin.php">
                             <img src="../controller/<?= $user_image ?>" alt="Pfp" class="pfpNav">
                         <?php else: ?>
@@ -77,6 +77,7 @@ $eventos_query = $conexion->query("SELECT * FROM EVENTOS");
                             <?php endif; ?>
                             </a>
                 </li>
+                
             <?php else: ?>
                 <li class="hideOnMobile"><button id="open-popup">LOG IN</button></li>
             <?php endif; ?>
@@ -144,8 +145,12 @@ $eventos_query = $conexion->query("SELECT * FROM EVENTOS");
                                 <img src="<?= $evento['MAIN_IMAGE_PATH'] ?>" alt="<?= htmlspecialchars($evento['NOMBRE']) ?>" class="event-image" style="width: 300px; height: 200px; object-fit: cover;">
                                 <div class="event-info">
                                     <h2><?= htmlspecialchars($evento['NOMBRE']) ?></h2>
-                                    <?php if (isset($_SESSION['rol']) == 1): ?>
-                                        <a href="eventManager.php?id=<?= $evento['ID'] ?>" class="btn btn-primary btn-sm">Manage</a>
+
+                                    <?php if(isset($_SESSION['rol'])):?>
+
+                                    <a href="eventManager.php?id=<?= $evento['ID'] ?>" class="btn btn-primary btn-sm">Manage</a>
+                                    
+                                        
                                     <?php endif; ?>
                                 </div>
                             </div>
