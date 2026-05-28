@@ -1,6 +1,6 @@
 -- Create Database
-CREATE DATABASE IF NOT EXISTS mp0487_firalia;
-USE mp0487_firalia;
+CREATE DATABASE IF NOT EXISTS mp0487_firalia_showndead;
+USE mp0487_firalia_showndead;
 
 -- Table: users
 CREATE TABLE IF NOT EXISTS users (
